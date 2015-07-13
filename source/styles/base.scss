@@ -142,6 +142,8 @@ p a {
     }
 }
 
+@import '_partials/ContactForm';
+
 @media (--sm-viewport) {
     @import '_common/sm_viewport';
 }
