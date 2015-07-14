@@ -32,9 +32,9 @@ block MainContent
           fieldset.ModalBlock.FormBlock
             legend Your details
             label Name
-              input(name="name",type="text",maxlength="50",placeholder="Your Name")
+              input(name="name",type="text",maxlength="50",placeholder="Your Name",autocomplete="name")
             label Email
-              input(name="email",type="text",maxlength="50",placeholder="you@youremail.com")
+              input(name="email",type="text",maxlength="50",placeholder="you@your-email.com",autocomplete="email")
           fieldset.ModalBlock.FormBlock.FormBlock--fullWidth
             legend Your message
             label(for="MessageBody") Body

@@ -4,6 +4,7 @@
 
 $ContactForm-highlight: rgba(255,0,0,0.6);
 $ContactForm-background: #FFFFFF;
+
 .ModalBlock {
   opacity: 0;
   animation-play-state: paused;
@@ -32,10 +33,6 @@ $ContactForm-background: #FFFFFF;
     
     opacity: 0;
     
-    .load & {
-      animation-duration: 1ms;
-      animation-delay: 1ms;
-    }
   }
 
   h3.ModalBlock {
@@ -131,6 +128,8 @@ $ContactForm-background: #FFFFFF;
     &:last-child {
       animation-name: ModalBlock--footer-animateIn;
       animation-duration: 400ms;
+      
+      margin-top: 12px;
     }
   }
 
@@ -231,222 +230,4 @@ $ContactForm-background: #FFFFFF;
   }
 }
 
-@keyframes ModalBlock-animateIn {
-  0% {
-    opacity: 0;
-    transform: translateY(100px);
-  }
-  
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes ModalOpenButton-animateOut {
-  0% {
-    opacity: 1;
-    color: #ffffff;
-    transform: scale(1, 1);
-  }
-  50% {
-    color: $Button-background;
-    transform: scale(1, 1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0, 0);
-  }
-}
-@keyframes ModalOpenButton-animateIn {
-  0% {
-    opacity: 0;
-    transform: scale(0, 0);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1, 1);
-  }
-}
-@keyframes ModalBlock--footer-animateIn {
-  0% {
-    opacity: 0;
-    transform: translateX(100%);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes ModalBlock--header-animateIn {
-  0% {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-
-  50% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  100% {
-    opacity: 1;
-
-    color: #003366;
-    background-color: rgba(255,255,255,.9);
-  }
-}
-@keyframes ModalCloseBtn-animateIn {
-  0% {
-    opacity: 0;
-    width: 0;
-    height: 0;
-    right: 18px;
-    top: 18px;
-    
-    line-height: 0;
-    color: rgba(255,255,255,0);
-  }
-  50% {
-    opacity: 1;
-    width: 36px;
-    height: 36px;
-    top: 4px;
-    right: 4px;
-    
-    vertical-align: middle;
-    color: rgba(255,255,255,0);
-  }
-  
-  100% {
-    opacity: 1;
-    width: 36px;
-    height: 36px;
-    top: 4px;
-    right: 4px;
-
-    vertical-align: middle;
-    color: rgba(255,255,255,1);
-  }
-}
-
-@media (--sm-viewport) {
-  
-  
-  @keyframes ContactForm-animateIn {
-    0% {
-      height: 36px;
-      margin: 0;
-
-      min-width: 100%;
-      left: 0;
-
-      background-color: ContactForm-backgroundColour(0);
-    }
-    35% {
-      background-color: ContactForm-backgroundColour(1);
-      height: 108px;
-    }
-    55% {
-      animation-timing-function: ease-out;
-    }
-    70% {
-      height: 636px; /* 24px (height) - 2px (border top & bottom) */
-
-      background-color: ContactForm-backgroundColour(1);
-
-      width: auto;
-    }
-    100% {
-      height: 636px; /* 24px (height) - 2px (border top & bottom) */
-
-      background-color: ContactForm-backgroundColour(1);
-      width: auto;
-    }
-
-  }
-}
-
-@media (--lg-viewport) {
-  @keyframes ContactForm-animateOut {
-    0% {
-      min-width: 126%;
-      left: -13%;
-
-      margin: -300px 0 -300px 0;
-      height: 636px; /* 24px (height) - 2px (border top & bottom) */
-
-      background-color: ContactForm-backgroundColour(1);
-      box-shadow: 4px 4px 14px rgba(00, 00, 00, 0.65);
-
-      width: auto;
-    }
-    25% {
-      box-shadow: 4px 4px 14px rgba(00, 00, 00, 0);
-    }
-    75% {
-      min-width: 126%;
-      left: -13%;
-    }
-    100% {
-      height: 36px;
-      margin: 0;
-
-      left: 0;
-      max-width: 100%;
-      background-color: ContactForm-backgroundColour(0);
-    }
-  }
-}
-
-@media (--lg-viewport) {
-  @keyframes ContactForm-animateIn {
-    0% {
-      height: 36px;
-      margin: 0;
-      
-      min-width: 100%;
-      left: 0;
-      
-      background-color: ContactForm-backgroundColour(0);
-    }
-    35% {
-      background-color: ContactForm-backgroundColour(1);
-      height: 108px;
-      margin: -36px 0;
-    }
-    50% {
-      min-width: 126%;
-      left: -13%;
-      box-shadow: 0 0 10px rgba(00,00,00,0);
-    }
-    55% {
-      animation-timing-function: ease-out;
-    }
-    70% {
-      min-width: 126%;
-      left: -13%;
-  
-      margin: -300px 0 -300px 0;
-      height: 636px; /* 24px (height) - 2px (border top & bottom) */
-      
-      box-shadow: 0 0 0 rgba(00,00,00,0);
-      background-color: ContactForm-backgroundColour(1);
-      
-      width: auto;
-    }
-    100% {
-      min-width: 126%;
-      left: -13%;
-  
-      margin: -300px 0 -300px 0;
-      height: 636px; /* 24px (height) - 2px (border top & bottom) */
-      
-      background-color: ContactForm-backgroundColour(1);
-      box-shadow: 4px 4px 14px rgba(00,00,00,0.65);
-      
-      width: auto;
-    }
-  
-  }
-}
+@import 'ContactForm-animations';
