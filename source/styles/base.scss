@@ -142,6 +142,43 @@ p a {
     }
 }
 
+.Button {
+    font-size: 1em;
+    line-height: 1.5;
+    text-align: center;
+    
+    display: inline-block;
+    min-width: 160px;
+    max-width: 400px;
+    
+    border: 1px solid #003366;
+    border-radius: 4px;
+    background-color: #0059bf;
+    
+    padding: 6px 12px;
+
+    text-decoration: none;
+    color: #ffffff;
+    
+    box-shadow: 0 0 4px rgba(24,24,24,0.7);
+    
+    transition:
+        box-shadow 300ms ease-out 250ms,
+        border 250ms ease-in,
+        background-color 250ms ease-in;
+    
+    &:hover {
+        border: 1px solid #00274f;
+        background-color: #005fd8;
+        box-shadow: 1px 1px 4px rgba(24,24,24,0.7);
+    }
+    
+    &--action {
+        font-size: 1em;
+        padding: 6px 12px;
+    }
+}
+
 @import '_partials/ContactForm';
 
 @media (--sm-viewport) {

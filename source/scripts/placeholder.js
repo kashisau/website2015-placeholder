@@ -15,11 +15,19 @@ var cookie = function() {
 }();
 
 var contact = function() {
-    var contactForm = document.querySelector('.ContactForm');
-    
-    contactForm.addEventListener('click', function(toggleFormEvent) {
-        var contactForm = toggleFormEvent.currentTarget;
+    var contactForm = document.querySelector('.ContactForm'),
+        contactFormLaunchBtn = document.querySelector('.ContactForm-launchBtn'),
+        modalCloseBtn = document.querySelector('.ModalCloseBtn');
+
+    contactFormLaunchBtn.addEventListener('click', function(toggleFormEvent) {
+        //var contactForm = toggleFormEvent.currentTarget;
+        toggleFormEvent.preventDefault();
         contactForm.classList.toggle('ContactForm--expanded');
+    });
+
+    modalCloseBtn.addEventListener('click', function(clickEvent) {
+        clickEvent.preventDefault();
+        contactForm.classList.remove('ContactForm--expanded');
     });
     
 }();

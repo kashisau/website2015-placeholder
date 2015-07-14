@@ -1,23 +1,320 @@
+@function ContactForm-backgroundColour($opacity) {
+  @return rgba(225,239,253, $opacity);
+}
+
+$ContactForm-highlight: #FF0000;
+$ContactForm-background: #FFFFFF;
+.ModalBlock {
+  opacity: 0;
+  animation-play-state: paused;
+}
+
 .ContactForm {
   display: block;
   position: relative;
   
-  height: 24px;
-  
-  *:not(.ContactForm-collapsed) {
+  height: 36px;
+
+  h3.ModalBlock {
     display: none;
+  }
+  
+  .ModalCloseBtn {
+    display: block;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+
+    width: 36px;
+    height: 36px;
+
+    background-color: #999988;
+    border-radius: 100%;
+    opacity: 0;
+
+    text-align: center;
   }
 }
 
 .ContactForm--expanded {
-  width: 126%;
-  margin: -300px 0 -300px -13%;
-  height: 600px;
-
   z-index: 10;
+  width: auto;
+  
+  overflow: hidden;
+  
+  animation-name: ContactForm-animateIn;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  animation-duration: 600ms;
+  animation-delay: 0ms;
+  animation-fill-mode: forwards;
+  
+  fieldset {
+    opacity: 0;
+    
+    margin: 0 24px;
+    background-color: ContactForm-backgroundColour(0.8);
+    border: none;
 
-  background-color: rgba(232,232,255,0.8);
-  box-shadow: 2px 2px 10px rgba(00,00,00,0.5);
-  border: 1px solid #003366;
+    white-space: nowrap;
+    
+    legend {
+      display: none;
+    }
+  }
+  
+  .ContactForm-collapsed {
+    display: none;
+  }
+
+  .ModalBlock {
+    animation-name: ModalBlock-animateIn;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    animation-duration: 300ms;
+    animation-delay: 600ms;
+    animation-fill-mode: forwards;
+
+    animation-play-state: running;
+    
+    @for $i from 0 through 4 {
+      &:nth-child(#{$i}) {
+        animation-delay: 600ms + (100 * $i);
+        animation-duration: 500ms - (50 * $i);
+      }
+    }
+    
+    &:last-child {
+      animation-name: ModalBlock--footer-animateIn;
+      animation-duration: 400ms;
+    }
+  }
+
+  h3.ModalBlock {
+    display: block;
+    
+    background-color: #FFFFFF;
+    margin: 0 0 1em;
+    padding: 6px 24px;
+    line-height: 1.5;
+    font-size: 1.5em;
+    font-family: "colaborate",Helvetica,Arial,sans-serif;
+    color: #fff;
+    
+    animation-name: ModalBlock--header-animateIn;
+    animation-delay: 400ms;
+    animation-duration: 200ms;
+    animation-fill-mode: forwards;
+  }
+  
+  
+  .ModalCloseBtn {
+    display: block;
+    position: absolute;
+    
+    background-color: #999988;
+    border-radius: 100%;
+
+    line-height: 36px;
+    vertical-align: middle;
+    
+    opacity: 0;
+    animation: ModalCloseBtn-animateIn 1 ease-in 600ms 1000ms forwards;
+    animation-delay: 760ms;
+  }
+  
+  .FormBlock textarea {
+    height: 320px;
+  }
+  
+  .ContactForm-controls {
+    padding: 0 30px 0 40px;
+    text-align: right;
+  }
+}
+
+.FormBlock {
+  label {
+    display: inline-block;
+    font-size: 1em;
+    width: 48%;
+    padding: 2%;
+    font-family: "colaborate",Helvetica,Arial,sans-serif;
+    text-indent: 1%;
+    
+    white-space: normal;
+    
+    input {
+      width: 92%;
+      font-size: 1.25em;
+      font-family: 'Merriweather', 'Times New Roman', 'Roman', serif;
+      font-weight: normal;
+      line-height: 1;
+      
+      padding: .5em 4%;
+      
+      border: 3px solid #DADADF;
+      
+      &:active,
+      &:focus {
+        border: 3px solid $ContactForm-highlight;  
+      }
+    }
+    
+    &:nth-of-type(1) {
+      padding-left: 0;
+    }
+    
+    &:nth-of-type(2) {
+      padding-right: 0;
+    }
+  }
+
+  textarea {
+    width: 96%;
+    padding: 2%;
+    font-family: 'Merriweather', 'Times New Roman', 'Roman', serif;
+    font-size: 1em;
+    line-height: 1.5;
+
+    border: 3px solid #DADADF;
+
+    &:active,
+    &:focus {
+      border: 3px solid $ContactForm-highlight;
+    }
+
+  }
+  
+  &--fullWidth {
+    label {
+      display: block;
+      padding: 0;
+    }
+  }
+}
+
+@keyframes ModalBlock-animateIn {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ModalBlock--footer-animateIn {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes ModalBlock--header-animateIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 1;
+
+    color: #003366;
+    background-color: rgba(255,255,255,.9);
+  }
+}
+@keyframes ModalCloseBtn-animateIn {
+  0% {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    right: 18px;
+    top: 18px;
+    
+    line-height: 0;
+    color: rgba(255,255,255,0);
+  }
+  50% {
+    opacity: 1;
+    width: 36px;
+    height: 36px;
+    top: 4px;
+    right: 4px;
+    
+    vertical-align: middle;
+    color: rgba(255,255,255,0);
+  }
+  
+  100% {
+    opacity: 1;
+    width: 36px;
+    height: 36px;
+    top: 4px;
+    right: 4px;
+
+    vertical-align: middle;
+    color: rgba(255,255,255,1);
+  }
+}
+
+@keyframes ContactForm-animateIn {
+  0% {
+    height: 36px;
+    margin: 0;
+    
+    min-width: 100%;
+    left: 0;
+    
+    background-color: ContactForm-backgroundColour(0);
+  }
+  35% {
+    background-color: ContactForm-backgroundColour(1);
+    height: 108px;
+    margin: -36px 0;
+  }
+  50% {
+    min-width: 126%;
+    left: -13%;
+    box-shadow: 0 0 10px rgba(00,00,00,0);
+  }
+  55% {
+    animation-timing-function: ease-out;
+  }
+  70% {
+    min-width: 126%;
+    left: -13%;
+
+    margin: -300px 0 -300px 0;
+    height: 636px; /* 24px (height) - 2px (border top & bottom) */
+    
+    box-shadow: 0 0 0 rgba(00,00,00,0);
+    background-color: ContactForm-backgroundColour(1);
+    
+    width: auto;
+  }
+  100% {
+    min-width: 126%;
+    left: -13%;
+
+    margin: -300px 0 -300px 0;
+    height: 636px; /* 24px (height) - 2px (border top & bottom) */
+    
+    background-color: ContactForm-backgroundColour(1);
+    box-shadow: 4px 4px 14px rgba(00,00,00,0.65);
+    
+    width: auto;
+  }
 
 }

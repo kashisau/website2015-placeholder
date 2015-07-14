@@ -1,6 +1,7 @@
 extends _layouts/_placeholder
 block Vars
   -mainMenu = false
+  -pageTitle = "Testing 123"
 block MainContent
     div.Placeholder
       header
@@ -8,36 +9,39 @@ block MainContent
           | Some
           br
           | Web page
-        h2 Full-stack web application developer specialising in interactive content.
+        h2
+          | JavaScript Event order:
+          br
+          | EventTarget.EventListener
       p
-        | I'm currently doing exciting things in online learning for healthcare professionals with Sydney creative agency 
-        a(href="http://ward6.com.au/",rel="noreferrer") Ward6
-        | . You can reach me at 
-        a(href="mailto:Kashi%20Samaraweera<kashi@kashis.com.au>") kashi@kashis.com.au
-        | ; or see what I'm working on at the moment on my development/travel blog, 
+        | f true, the listener will receive synthetic events dispatched by web content (the default is false for chrome and true for regular web pages). 
+        a(href="http://ward6.com.au/",rel="noreferrer") Example
+        | . This parameter is only available in  
+        a(href="mailto:Kashi%20Samaraweera<kashi@kashis.com.au>") Gecko
+        | ; and is mainly useful for the code in add-ons and the browser itself. See Interaction between privileged and non-privileged pages for an example. 
         a(href="https://enroute.kashmaniac.com.au/")
             em En&nbsp;Route
         | .
-      h2 Contact me
+      h2 Contact
       p Use the button below to request a consultation.
-      div.ContactForm.ContactForm--expanded
-        h3 Contact form
-        a(href="javascript:void(0);").ModalCloseBtn Close
-        a(href="mailto:Kashi%20Samaraweera<kashi@kashis.com.au>",title="Expand the contact form").Button.Button--large.ContactForm-collapsed Write message
+      div.ContactForm
+        h3.ModalBlock Contact form
+        a(href="javascript:void(0);").ModalCloseBtn X
+        a(href="mailto:Kashi%20Samaraweera<kashi@kashis.com.au>",title="Expand the contact form").ContactForm-launchBtn.Button.Button--large.ContactForm-collapsed Write message
         form(action="https://kashisam.com.au/api/contact/",method="post").ContactForm-form
-          fieldset
+          fieldset.ModalBlock.FormBlock
             legend Your details
             label Name
-              input(name="name",type="text",maxlength="50")
+              input(name="name",type="text",maxlength="50",placeholder="Your Name")
             label Email
-              input(name="email",type="text",maxlength="50")
-          fieldset
+              input(name="email",type="text",maxlength="50",placeholder="you@youremail.com")
+          fieldset.ModalBlock.FormBlock.FormBlock--fullWidth
             legend Your message
             label(for="MessageBody") Body
             textarea(id="MessageBody",maxlength="65536",placeholder="Try to describe what you're aiming to achieve...")
-          div.ContactForm-controls
-            input(type="submit",value="Go!")
-      h2 Upcoming portfolio
+          div.ContactForm-controls.ModalBlock
+            input(type="submit",value="Send").Button.Button--action
+      h2 Lorem Ipsum
       p
         | This website will be host to a portfolio for my front-end development work and is being built during Q2-3 2015 (source on 
         a(href="https://bitbucket.org/KashmaNiaC/website2015-placeholder") BitBucket
