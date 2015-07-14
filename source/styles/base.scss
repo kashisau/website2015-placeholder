@@ -3,6 +3,8 @@
 @import '_common/fonts';
 @import '_common/animations';
 
+$Button-background: #0059bf;
+
 @media screen {
     @-ms-viewport { width: device-width; }
 }
@@ -153,7 +155,7 @@ p a {
     
     border: 1px solid #003366;
     border-radius: 4px;
-    background-color: #0059bf;
+    background-color: $Button-background;
     
     padding: 6px 12px;
 
@@ -171,6 +173,11 @@ p a {
         border: 1px solid #00274f;
         background-color: #005fd8;
         box-shadow: 1px 1px 4px rgba(24,24,24,0.7);
+    }
+    
+    &:active {
+        transform-origin: center center;
+        transform: scale(1.1, 1.1);
     }
     
     &--action {

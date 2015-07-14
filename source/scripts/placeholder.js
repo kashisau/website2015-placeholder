@@ -14,6 +14,11 @@ var cookie = function() {
     document.cookie = "hasVisitedBefore=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
 }();
 
+/**
+ * This contact form handler manages simple class switching to effect the state
+ * of the contact form. All animations are done using CSS (see the sourcemaps
+ * associated with the styles-all.css file).
+ */
 var contact = function() {
     var contactForm = document.querySelector('.ContactForm'),
         contactFormLaunchBtn = document.querySelector('.ContactForm-launchBtn'),
@@ -30,4 +35,20 @@ var contact = function() {
         contactForm.classList.remove('ContactForm--expanded');
     });
     
+    document.addEventListener('keyup', function(keyPressEvent) {
+        var escapePressed = keyPressEvent.which === 27;
+        if (!escapePressed) return true;
+        
+        if (contactForm.classList.contains('ContactForm--expanded')) {
+            contactForm.classList.remove('ContactForm--expanded');
+        }
+    });
+
+    window.addEventListener('load', function load() {
+        window.removeEventListener('load', load, false);
+        setTimeout(function() {
+            document.body.classList.remove('load');    
+        }, 500);
+
+    }, false);
 }();
