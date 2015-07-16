@@ -98,7 +98,6 @@
   }
 }
 
-$ContactForm-finalMargin: -320px 0 -280px 0;
 
 @keyframes ContactForm-animateOut {
   0% {
@@ -106,7 +105,7 @@ $ContactForm-finalMargin: -320px 0 -280px 0;
     left: -13%;
 
     margin: $ContactForm-finalMargin;
-    height: 636px; /* 24px (height) - 2px (border top & bottom) */
+    height: $ContactForm--expandedHeight; /* 24px (height) - 2px (border top & bottom) */
 
     background-color: ContactForm-backgroundColour(1);
     box-shadow: 4px 4px 14px rgba(00, 00, 00, 0.65);
@@ -121,7 +120,7 @@ $ContactForm-finalMargin: -320px 0 -280px 0;
     left: -13%;
   }
   100% {
-    height: 36px;
+    height: $ContactForm--collapsedHeight;
     margin: 0;
 
     left: 0;
@@ -132,24 +131,25 @@ $ContactForm-finalMargin: -320px 0 -280px 0;
 
 @keyframes ContactForm-animateIn {
   0% {
-    height: 36px;
+    height: $ContactForm--collapsedHeight;
     margin: 0;
     
     min-width: 100%;
     left: 0;
-    
-    box-shadow: 4px 4px 14px rgba(00,00,00,0.0);
+
+    box-shadow: 0 0 0 rgba(00,00,00,0.0);
     background-color: ContactForm-backgroundColour(0);
   }
   35% {
     background-color: ContactForm-backgroundColour(1);
     height: 108px;
-    margin: -36px 0;
+    margin: (0 - (108px - $ContactForm--collapsedHeight)/2) 0;
+
+    box-shadow: 0 0 0 rgba(00,00,00,0.0);
   }
   50% {
     min-width: 126%;
     left: -13%;
-    box-shadow: 0 0 10px rgba(00,00,00,0);
   }
   55% {
     animation-timing-function: ease-out;
@@ -159,10 +159,10 @@ $ContactForm-finalMargin: -320px 0 -280px 0;
     left: -13%;
 
     margin: $ContactForm-finalMargin;
-    height: 636px; /* 24px (height) - 2px (border top & bottom) */
+    height: $ContactForm--expandedHeight;
     
-    box-shadow: 0 0 0 rgba(00,00,00,0);
     background-color: ContactForm-backgroundColour(1);
+    box-shadow: 4px 4px 14px rgba(00,00,00,0.65);
     
     width: auto;
   }
@@ -171,7 +171,7 @@ $ContactForm-finalMargin: -320px 0 -280px 0;
     left: -13%;
 
     margin: $ContactForm-finalMargin;
-    height: 636px; /* 24px (height) - 2px (border top & bottom) */
+    height: $ContactForm--expandedHeight; /* 24px (height) - 2px (border top & bottom) */
     
     background-color: ContactForm-backgroundColour(1);
     box-shadow: 4px 4px 14px rgba(00,00,00,0.65);

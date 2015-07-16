@@ -47,8 +47,8 @@ var contact = function() {
     window.addEventListener('load', function load() {
         window.removeEventListener('load', load, false);
         setTimeout(function() {
-            document.body.classList.remove('load');    
-        }, 500);
+            document.body.classList.remove('load');
+        }, 300);
 
     }, false);
 }();

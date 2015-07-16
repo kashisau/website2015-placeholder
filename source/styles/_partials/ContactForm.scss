@@ -4,6 +4,10 @@
 
 $ContactForm-highlight: rgba(255,0,0,0.6);
 $ContactForm-background: #FFFFFF;
+$ContactForm-finalMargin: -320px 0 -274px 0;
+$ContactForm--collapsedHeight: 42px;
+$ContactForm--expandedHeight: 636px;
+
 
 .ModalBlock {
   opacity: 0;
@@ -14,7 +18,8 @@ $ContactForm-background: #FFFFFF;
   display: block;
   position: relative;
   
-  height: 36px;
+  overflow: hidden;
+  height: $ContactForm--collapsedHeight;
 
   animation-name: ContactForm-animateOut;
   animation-iteration-count: 1;
