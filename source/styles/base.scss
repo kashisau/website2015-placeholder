@@ -21,6 +21,8 @@ body {
     height: 100%;
     padding: 0;
     margin: 0;
+    
+    font-size: 16px;
 }
 .Main {
     height: 100%;
@@ -64,13 +66,13 @@ h1, h2 {
     font-weight: bold;
     
     font-size-adjust: 0.7;
-    letter-spacing: -0.07em;
+    letter-spacing: -0.07rem;
     
     position: relative;
-    left: -1.25em;
+    left: -1.25rem;
 
     &::before {
-        width: 1.25em;
+        width: 1.25rem;
         display: inline-block;
         vertical-align: middle;
 
@@ -87,9 +89,9 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 2.4em;
+    font-size: 2.4rem;
     margin: 0;
-    text-indent: -1.25em;
+    text-indent: -1.25rem;
     left: auto;
     display: inline-block;
     line-height: 1.33;
@@ -97,8 +99,8 @@ h1 {
 header {
     
     h2 {
-        font-size: 1.25em;
-        margin-bottom: 1em;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
         
         color: #0059BF;
         
@@ -117,10 +119,10 @@ header {
 }
 
 p {
-    font-size: 1.0em;
+    font-size: 1.0rem;
     line-height: 1.7;
     font-feature-settings: "liga", "onum", "kern";
-    margin: 0px 0px 1.75em;
+    margin: 0px 0px 1.75rem;
     text-rendering: geometricprecision;
 }
 
@@ -144,45 +146,66 @@ p a {
     }
 }
 
-.Button {
-    font-size: 1em;
-    line-height: 1.5;
+.Button,
+.Buttonesque {
     text-align: center;
-    
     display: inline-block;
+    text-decoration: none;
+
+    cursor: pointer;
+    outline: none;
+    
+    &:active {
+        transform-origin: center center 0px;
+        transform: scale(0.96, 0.96);
+        box-shadow: inset 0 0 2px rgba(24,24,24,0.7);
+    }
+    
+    &--action {
+        font-size: 1rem;
+        padding: 6px 12px;
+    }
+}
+
+.Button {
+    font-size: 1rem;
+    line-height: 1.5;
+
     min-width: 160px;
     max-width: 400px;
+
+    padding: 6px 12px;
+
+    color: #ffffff;
     
     border: 1px solid #003366;
     border-radius: 4px;
     background-color: $Button-background;
-    
-    padding: 6px 12px;
-
-    text-decoration: none;
-    color: #ffffff;
-    
     box-shadow: 0 0 4px rgba(24,24,24,0.7);
-    
+
     transition:
         box-shadow 300ms ease-out 250ms,
         border 250ms ease-in,
-        background-color 250ms ease-in;
-    
+        background-color 250ms ease-in,
+        transform 200ms ease-out;
+
+
     &:hover {
+        transition:
+            box-shadow 150ms ease-out 125ms,
+            border 125ms ease-in,
+            background-color 125ms ease-in,
+            transform 100ms ease-out;
+        
         border: 1px solid #00274f;
         background-color: #005fd8;
         box-shadow: 1px 1px 4px rgba(24,24,24,0.7);
     }
-    
+
     &:active {
-        transform-origin: center center;
-        transform: scale(1.1, 1.1);
-    }
-    
-    &--action {
-        font-size: 1em;
-        padding: 6px 12px;
+        background-color: #005fd8;
+        transition: background-color 0s;
+        box-shadow: inset 0 0 2px rgba(24,24,24,0.7);
     }
 }
 

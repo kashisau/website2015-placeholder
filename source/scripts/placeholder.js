@@ -15,6 +15,19 @@ var cookie = function() {
 }();
 
 /**
+ * Button treatment. This snippet disables any dragging of buttons (including
+ * those elements that should behave like buttons).
+ */
+var buttons = function() {
+    var pageButtons = document.querySelectorAll('.Buttonesque, .Button');
+    for (var button = 0, buttons = pageButtons.length; button < buttons; button++) {
+        pageButtons[button].addEventListener('dragstart', 
+            function(dragEvent) { dragEvent.preventDefault(); }
+        ); 
+    }
+}();
+
+/**
  * This contact form handler manages simple class switching to effect the state
  * of the contact form. All animations are done using CSS (see the sourcemaps
  * associated with the styles-all.css file).

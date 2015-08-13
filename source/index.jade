@@ -26,9 +26,9 @@ block MainContent
       p Use the button below to request a consultation.
       div.ContactForm
         h3.ModalBlock Contact form
-        a(href="javascript:void(0);").ModalCloseBtn X
+        a(href="javascript:void(0);").ModalCloseBtn.Buttonesque X
         a(href="mailto:Kashi%20Samaraweera<kashi@kashis.com.au>",title="Expand the contact form").ContactForm-launchBtn.Button.Button--large.ModalOpenButton Write message
-        form(action="https://kashisam.com.au/api/contact/",method="post").ContactForm-form
+        form(action="http://localhost:3000/v1.0/contact/send",method="post").ContactForm-form
           fieldset.ModalBlock.FormBlock
             legend Your details
             label Name
@@ -38,7 +38,7 @@ block MainContent
           fieldset.ModalBlock.FormBlock.FormBlock--fullWidth
             legend Your message
             label(for="MessageBody") Body
-            textarea(id="MessageBody",maxlength="65536",placeholder="Try to describe what you're aiming to achieve...")
+            textarea(name="message",maxlength="65536",placeholder="Try to describe what you're aiming to achieve...")
           div.ContactForm-controls.ModalBlock
             input(type="submit",value="Send").Button.Button--action
       h2 Lorem Ipsum
