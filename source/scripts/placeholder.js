@@ -33,21 +33,28 @@ var buttons = function() {
  * associated with the styles-all.css file).
  */
 var contact = function() {
+    var contactAPI = {};
+
     var contactForm = document.querySelector('.ContactForm'),
         contactFormLaunchBtn = document.querySelector('.ContactForm-launchBtn'),
-        modalCloseBtn = document.querySelector('.ModalCloseBtn');
+        modalCloseBtn = document.querySelector('.ModalCloseBtn'),
+        contactFormForm = document.querySelector('.ContactForm-form');
 
+    // Expands the contact form modal.
     contactFormLaunchBtn.addEventListener('click', function(toggleFormEvent) {
         //var contactForm = toggleFormEvent.currentTarget;
         toggleFormEvent.preventDefault();
         contactForm.classList.toggle('ContactForm--expanded');
     });
 
+    // Closes any model in which the button exists.
     modalCloseBtn.addEventListener('click', function(clickEvent) {
         clickEvent.preventDefault();
         contactForm.classList.remove('ContactForm--expanded');
     });
-    
+
+    // Check to see if the user is furiously pressing escape to kill it with
+    // fire (the pop-up modal).
     document.addEventListener('keyup', function(keyPressEvent) {
         var escapePressed = keyPressEvent.which === 27;
         if (!escapePressed) return true;
@@ -57,6 +64,8 @@ var contact = function() {
         }
     });
 
+    // Removes the classes that have been put in place to suppress page build
+    // animations.
     window.addEventListener('load', function load() {
         window.removeEventListener('load', load, false);
         setTimeout(function() {
@@ -64,4 +73,16 @@ var contact = function() {
         }, 300);
 
     }, false);
+
+    // Re-route the request via AJAX (cancelling the initial submission).
+    contactFormForm.addEventListener('submit', function(submitEvent) {
+        submitEvent.preventDefault();
+        submitEvent.stopPropagation();
+
+        return false;
+    });
+
+
+
+    return contactAPI;
 }();
