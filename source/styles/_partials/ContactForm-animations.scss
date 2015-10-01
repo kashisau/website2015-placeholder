@@ -1,5 +1,5 @@
 
-@keyframes ModalBlock-animateIn {
+@keyframes Modal-block-animateIn {
   0% {
     opacity: 0;
     transform: translateY(100px);
@@ -35,7 +35,7 @@
     transform: scale(1, 1);
   }
 }
-@keyframes ModalBlock--footer-animateIn {
+@keyframes Modal-block--footer-animateIn {
   0% {
     opacity: 0;
     transform: translateX(100%);
@@ -47,7 +47,7 @@
   }
 }
 
-@keyframes ModalBlock--header-animateIn {
+@keyframes Modal-block--header-animateIn {
   0% {
     opacity: 0;
     transform: translateX(-100%);

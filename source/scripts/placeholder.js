@@ -32,7 +32,7 @@ var buttons = function() {
  * of the contact form. All animations are done using CSS (see the sourcemaps
  * associated with the styles-all.css file).
  */
-var contact = function() {
+/*var contact = function() {
     var contactAPI = {};
 
     var contactForm = document.querySelector('.ContactForm'),
@@ -85,4 +85,4 @@ var contact = function() {
 
 
     return contactAPI;
-}();
+}();*/

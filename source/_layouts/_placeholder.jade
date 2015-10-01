@@ -3,12 +3,13 @@ html(lang="en")
   //- Defaults for page variables
   -var pageTitle = "Kashi Samaraweera"
   -var mainMenu = true
-  -var baseScripts = ['scripts-all.js']
+  -var baseScripts = ['https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js', 'scripts-all.js']
+  -var baseScripts = []
   //- Optional override of default variables
   block Vars
   -var allScripts = baseScripts
   -if (typeof(scripts) !== "undefined") {
-    allScripts = baseScripts.concat(scripts)
+    -allScripts = baseScripts.concat(scripts)
   -}
   head
     title= pageTitle
@@ -17,7 +18,7 @@ html(lang="en")
     -} else {
       link(href="styles-all.css",rel="stylesheet")
     -}
-    link(href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400",rel="stylesheet",type="text/css")
+    //link(href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400",rel="stylesheet",type="text/css")
     meta(name="viewport",content="width=device-width,initial-scale=1.0")
   body.load
     div.Main
@@ -25,6 +26,6 @@ html(lang="en")
     -if (production) {
       script(src="scripts-all.min.js",type="text/javascript")
     -} else {
-      each script in baseScripts
+      each script in allScripts
         script(src="#{script}",type="text/javascript")
     -}

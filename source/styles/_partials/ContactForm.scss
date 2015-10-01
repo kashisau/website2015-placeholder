@@ -9,7 +9,7 @@ $ContactForm--collapsedHeight: 42px;
 $ContactForm--expandedHeight: 636px;
 
 
-.ModalBlock {
+.Modal-block {
   opacity: 0;
   animation-play-state: paused;
 }
@@ -40,11 +40,11 @@ $ContactForm--expandedHeight: 636px;
     
   }
 
-  h3.ModalBlock {
+  h3.Modal-block {
     display: none;
   }
   
-  .ModalCloseBtn {
+  .Modal-closeBtn {
     display: block;
     position: absolute;
     top: 4px;
@@ -69,7 +69,7 @@ $ContactForm--expandedHeight: 636px;
   opacity: 0;
 }
 
-.ContactForm--expanded {
+.ContactForm.Modal--active {
   z-index: 10;
   width: auto;
   
@@ -103,7 +103,7 @@ $ContactForm--expandedHeight: 636px;
   }
   
   .ContactForm-collapsed {
-    animation-name: ModalBlock-animateIn;
+    animation-name: Modal-block-animateIn;
     animation-iteration-count: 1;
     animation-timing-function: ease-out;
     animation-duration: 300ms;
@@ -112,8 +112,8 @@ $ContactForm--expandedHeight: 636px;
     animation-fill-mode: forwards;
   }
 
-  .ModalBlock {
-    animation-name: ModalBlock-animateIn;
+  .Modal-block {
+    animation-name: Modal-block-animateIn;
     animation-iteration-count: 1;
     animation-timing-function: ease-out;
     animation-duration: 300ms;
@@ -131,14 +131,14 @@ $ContactForm--expandedHeight: 636px;
     }
     
     &:last-child {
-      animation-name: ModalBlock--footer-animateIn;
+      animation-name: Modal-block--footer-animateIn;
       animation-duration: 400ms;
       
       margin-top: 12px;
     }
   }
 
-  h3.ModalBlock {
+  h3.Modal-block {
     display: block;
     background-color: #FFFFFF;
     margin: 0 0 1rem;
@@ -148,14 +148,14 @@ $ContactForm--expandedHeight: 636px;
     font-family: "colaborate",Helvetica,Arial,sans-serif;
     color: #fff;
     
-    animation-name: ModalBlock--header-animateIn;
+    animation-name: Modal-block--header-animateIn;
     animation-delay: 400ms;
     animation-duration: 200ms;
     animation-fill-mode: forwards;
   }
   
   
-  .ModalCloseBtn {
+ .Modal-closeBtn {
     display: block;
     position: absolute;
     

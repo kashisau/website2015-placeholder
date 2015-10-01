@@ -2,6 +2,7 @@ extends _layouts/_placeholder
 block Vars
   -mainMenu = false
   -pageTitle = "Testing 123"
+  -scripts = ['../assets/scripts/jquery-2.1.4.min.js', 'scripts-all.js']
 block MainContent
     div.Placeholder
       header
@@ -24,22 +25,22 @@ block MainContent
         | .
       h2 Contact
       p Use the button below to request a consultation.
-      div.ContactForm
-        h3.ModalBlock Contact form
-        a(href="javascript:void(0);").ModalCloseBtn.Buttonesque X
-        a(href="mailto:Kashi%20Samaraweera<kashi@kashis.com.au>",title="Expand the contact form").ContactForm-launchBtn.Button.Button--large.ModalOpenButton Write message
+      div.Modal.ContactForm
+        h3.Modal-block Contact form
+        a(href="javascript:void(0);").Modal-closeBtn.Buttonesque X
+        a(href="mailto:Kashi%20Samaraweera<kashi@kashis.com.au>",title="Expand the contact form").Modal-openBtn.ContactForm-launchBtn.Button.Button--large.ModalOpenButton Write message
         form(action="http://localhost:3000/v1.0/contact/send",method="post").ContactForm-form
-          fieldset.ModalBlock.FormBlock
+          fieldset.Modal-block.FormBlock
             legend Your details
             label Name
               input(name="name",type="text",maxlength="50",placeholder="Your Name",autocomplete="name")
             label Email
               input(name="email",type="text",maxlength="50",placeholder="you@your-email.com",autocomplete="email")
-          fieldset.ModalBlock.FormBlock.FormBlock--fullWidth
+          fieldset.Modal-block.FormBlock.FormBlock--fullWidth
             legend Your message
             label(for="MessageBody") Body
             textarea(name="message",maxlength="65536",placeholder="Try to describe what you're aiming to achieve...")
-          div.ContactForm-controls.ModalBlock
+          div.ContactForm-controls.Modal-block
             input(type="submit",value="Send").Button.Button--action
       h2 Lorem Ipsum
       p
