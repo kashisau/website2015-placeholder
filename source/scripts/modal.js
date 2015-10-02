@@ -13,7 +13,7 @@ var com = com || {};
 com.kashis = com.kashis || {};
 com.kashis.frontend = com.kashis.frontend || {};
 /** Payload */
-com.kashis.frontend.modal = (function(){
+com.kashis.frontend.modal = function(){
 	
 	var ModalAPI = {};
 	
@@ -129,4 +129,5 @@ com.kashis.frontend.modal = (function(){
 	// Run the initialisation process once the DOM is ready.
 	$(document).ready(_init);
 	
-}());
+	return ModalAPI;
+}();

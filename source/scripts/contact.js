@@ -12,7 +12,7 @@ var com = com || {};
 com.kashis = com.kashis || {};
 com.kashis.frontend = com.kashis.frontend || {};
 /** Payload */
-com.kashis.frontend.contact = (function(){
+com.kashis.frontend.contact = function(){
 	
 	var ContactAPI = {};
 	
@@ -38,6 +38,7 @@ com.kashis.frontend.contact = (function(){
 				_controls[control] = $(_controls[control])
 
 		_controls.form.on('submit', _interceptSubmission);
+		com.kashis.frontend.auth.observeAuthTokenChanges(function(newToken) { console.log("New token applied to contact.js: " + newToken);}, this);
 	}
 	
 	/**
@@ -74,4 +75,5 @@ com.kashis.frontend.contact = (function(){
 	
 	$(document).ready(_init);
 	
-}());
+	return ContactAPI;
+}();
