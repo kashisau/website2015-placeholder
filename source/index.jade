@@ -38,8 +38,8 @@ block MainContent
               input(name="email",type="text",maxlength="50",placeholder="you@your-email.com",autocomplete="email")
           fieldset.Modal-block.FormBlock.FormBlock--fullWidth
             legend Your message
-            label(for="MessageBody") Body
-            textarea(name="message",maxlength="65536",placeholder="Try to describe what you're aiming to achieve...")
+            label(for="ContactForm-messageBody") Body
+            textarea(name="body",id="ContactForm-messageBody",maxlength="65536",placeholder="Try to describe what you're aiming to achieve...")
           div.ContactForm-controls.Modal-block
             input(type="submit",value="Send").Button.Button--action
       h2 Lorem Ipsum
