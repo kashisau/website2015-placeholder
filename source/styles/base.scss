@@ -60,63 +60,45 @@ h1, h2 {
     font-family: 'colaborate', Helvetica, Arial, sans-serif;
     color: #232323;
     font-weight: bold;
-    
-    font-size-adjust: 0.7;
     letter-spacing: -0.07em;
-    
     position: relative;
-    left: -1.25em;
-
-    &::before {
-        width: 1.25em;
-        display: inline-block;
-        vertical-align: middle;
-
-        content: '// ';
-        text-indent: 0;
-        color: rgba(192,192,192, 0.25);
-
-        transition: color 0.2s ease;
-    }
-
-    &:hover::before {
-        color: rgba(192,192,192, 1.0);
-    }
 }
 
 h1 {
-    font-size: 2.4em;
+    font-size: 3.66em;
     margin: 0;
-    text-indent: -1.25em;
     left: auto;
     display: inline-block;
-    line-height: 1.33;
+    line-height: 0.8;
+}
+
+.LogoName {
+  &-first,
+  &-last {
+    display: block;
+  }
+  
+  &-last {
+    font-size: 0.85em;
+  }
 }
 header {
-    
     h2 {
-        font-size: 1.25em;
-        margin-bottom: 1em;
-        
+        font-size: 1.7em;        
         color: #0059BF;
         
-        line-height: 1.75;
         letter-spacing: normal;
-        
+        margin: 0.66em 0;
         left: 0;
         
         font-weight: normal;
         font-family: 'Merriweather', 'Times New Roman', 'Roman', serif;
-        
-        &::before {
-            display: none;
-        }
     }
 }
 
 p {
     font-size: 1.0em;
-    line-height: 1.7;
+    line-height: 1.85;
     font-feature-settings: "liga", "onum", "kern";
     margin: 0px 0px 1.75em;
     text-rendering: geometricprecision;
